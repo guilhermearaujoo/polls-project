@@ -4,12 +4,7 @@
       "version": "detect"
     }
   },
-  "extends": [
-    "standard-with-typescript",
-    "prettier",
-    "plugin:react/recommended"
-  ],
-  "plugins": ["react"],
+  "extends": ["standard-with-typescript"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
@@ -17,6 +12,6 @@
     "@typescript-eslint/consistent-type-definitions": "off", //permite criar interfaces e typealias
     "@typescript-eslint/strict-boolean-expressions": "off", //permite comparar "!variavael",
     "@typescript-eslint/camelcase": "off",
-    "react/jsx-uses-vars": "error"
+    "@typescript-eslint/prefer-nullish-coalescing": "off"
   }
 }
