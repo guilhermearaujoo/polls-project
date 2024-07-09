@@ -4,7 +4,15 @@
       "version": "detect"
     }
   },
-  "extends": ["standard-with-typescript"],
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
   "parserOptions": {
     "project": "./tsconfig.json",
     "parser": "@typescript-eslint/parser"
@@ -14,6 +22,8 @@
     "@typescript-eslint/strict-boolean-expressions": "off", //permite comparar "!variavael",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
-    "@typescript-eslint/unbound-method": "off"
+    "@typescript-eslint/unbound-method": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error"
   }
 }
