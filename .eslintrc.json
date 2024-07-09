@@ -6,7 +6,8 @@
   },
   "extends": ["standard-with-typescript"],
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "parser": "@typescript-eslint/parser"
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off", //permite criar interfaces e typealias
