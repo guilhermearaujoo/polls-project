@@ -22,6 +22,7 @@
     "@typescript-eslint/strict-boolean-expressions": "off", //permite comparar "!variavael",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/prefer-nullish-coalescing": "off",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/unbound-method": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
