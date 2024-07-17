@@ -1,7 +1,4 @@
-import Footer from '@/presentation/components/footer/footer'
-import FormStatus from '@/presentation/components/form-status/form-status'
-import Input from '@/presentation/components/input/input'
-import LoginHeader from '@/presentation/components/login-header/login-header'
+import { Footer, FormStatus, Input, LoginHeader } from '@/presentation/components'
 import React from 'react'
 const Style = require('./login-styles.scss')
 
