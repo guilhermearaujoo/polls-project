@@ -1,4 +1,5 @@
-import Logo from '@/presentation/components/logo/logo'
+import Footer from '@/presentation/components/footer/footer'
+import LoginHeader from '@/presentation/components/login-header/login-header'
 import Spiner from '@/presentation/components/spiner/spiner'
 import React from 'react'
 const Style = require('./login-styles.scss')
@@ -6,10 +7,7 @@ const Style = require('./login-styles.scss')
 const Login: React.FC = () => {
   return (
     <div className={Style.login}>
-      <header className={Style.header}>
-        <Logo/>
-        <h1>4Dev - Polls for devs</h1>
-      </header>
+      <LoginHeader />
       <form className={Style.form} action="">
         <h2>Login</h2>
         <div className={Style.inputWrapper}>
@@ -27,7 +25,7 @@ const Login: React.FC = () => {
           <span className={Style.error}>Erro</span>
         </div>
       </form>
-      <footer className={Style.footer}></footer>
+      <Footer />
     </div>
   )
 }
