@@ -3,9 +3,12 @@ import React from 'react'
 import Login from './login'
 
 describe('Login Component', () => {
-  test('Should not render Spinner and ErrorMessage on start', () => {
+  test('Should start with initial state', () => {
     const { getByTestId } = render(<Login />)
     const errorWrapper = getByTestId('error-wrap')
     expect(errorWrapper.childElementCount).toBe(0)
+
+    const submitButton = getByTestId('submit') as HTMLButtonElement
+    expect(submitButton.disabled).toBe(true)
   })
 })
