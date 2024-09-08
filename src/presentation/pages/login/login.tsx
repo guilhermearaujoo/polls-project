@@ -14,17 +14,17 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     email: '',
     password: '',
     emailError: '',
-    passwordError: 'Campo obrigatório',
+    passwordError: '',
     mainError: ''
   })
 
   useEffect(() => {
-    validation.validate('password', state.password)
-  }, [state.password])
-
-  useEffect(() => {
-    setState({ ...state, emailError: validation.validate('email', state.email) })
-  }, [state.email])
+    setState({
+      ...state,
+      passwordError: validation.validate('password', state.password),
+      emailError: validation.validate('email', state.email)
+    })
+  }, [state.password, state.email])
 
   return (
     <div className={Style.login}>
