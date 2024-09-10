@@ -7,7 +7,7 @@ type Props = React.HTMLAttributes<HTMLElement> & {
 
 const Spiner: React.FC<Props> = (props: Props) => {
   return (
-    <div {...props} className={[Style.spiner, props.className].join(' ')}>
+    <div {...props} data-testid="spiner" className={[Style.spiner, props.className].join(' ')}>
         <div/>
         <div/>
         <div/>
