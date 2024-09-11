@@ -96,7 +96,7 @@ describe('Login Component', () => {
     simulateStatusForField(sut, 'password')
   })
 
-  test('Should enable submit button if form is invalid', () => {
+  test('Should enable submit button if form is valid', () => {
     const { sut } = makeSut()
     populateEmailField(sut)
     populatePasswordField(sut)
@@ -132,5 +132,13 @@ describe('Login Component', () => {
     simulateValidSubmit(sut)
     simulateValidSubmit(sut)
     expect(authenticationSpy.callsCount).toBe(1)
+  })
+
+  test('Should not call authentication if form is invalid', () => {
+    const validationError = faker.word.words()
+    const { sut, authenticationSpy } = makeSut({ validationError })
+    populateEmailField(sut)
+    fireEvent.submit(sut.getByTestId('form'))
+    expect(authenticationSpy.callsCount).toBe(0)
   })
 })
