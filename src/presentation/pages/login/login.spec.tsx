@@ -2,6 +2,7 @@ import { InvalidCredentialsError } from '@/domain/error'
 import { AuthenticationSpy, ValidationStub } from '@/presentation/test'
 import { faker } from '@faker-js/faker'
 import { cleanup, fireEvent, render, waitFor, type RenderResult } from '@testing-library/react'
+import 'jest-localstorage-mock'
 import React from 'react'
 import Login from './login'
 
@@ -55,6 +56,9 @@ const simulateStatusForField = (sut: RenderResult, fieldName: string, validation
 
 describe('Login Component', () => {
   afterEach(cleanup)
+  beforeEach(() => {
+    localStorage.clear()
+  })
 
   test('Should start with initial state', () => {
     const validationError = faker.word.words()
@@ -153,5 +157,12 @@ describe('Login Component', () => {
     const mainError = sut.getByTestId('main-error')
     expect(mainError.textContent).toBe(error.message)
     expect(errorWrapper.childElementCount).toBe(1)
+  })
+
+  test('Should add accessToken to localStorage on success authentication', async () => {
+    const { sut, authenticationSpy } = makeSut()
+    simulateValidSubmit(sut)
+    await waitFor(() => sut.getByTestId('form'))
+    expect(localStorage.setItem).toHaveBeenCalledWith('accessToken', authenticationSpy.account.accessToken)
   })
 })
